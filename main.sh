@@ -29,11 +29,11 @@ bash Miniconda2-latest-Linux-x86_64.sh
 # PATH="$PATH:~/miniconda2/bin"
 
 # anaconda R, gdal, and linux dependencies
-conda config --add channel conda-forge
-conda install gcc_linux-64 gxx_linux-64 gfortran_linux-64 gdal R r-essentials r-sf
-# doesn't work:
-# conda install -c sodre postgis # gets liblwgeom for sf/lwgeom
-# conda install -c anaconda geos # why doesn't "conda install geos" work?
+conda config --add channels conda-forge
+# CRAN versions of sf & rpostgresql, or their dependencies, don't work with anaconda
+conda install gcc_linux-64 gxx_linux-64 gfortran_linux-64 gdal R r-essentials r-sf r-rpostgresql
+# mkdir ~/Desktop/tmp
+# export TMPDIR=~/Desktop/tmp # if noexec causes trouble
 
 # rgdal, sf, etc...
 # R CMD INSTALL rgdal
