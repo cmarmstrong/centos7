@@ -30,8 +30,8 @@ bash Miniconda2-latest-Linux-x86_64.sh
 
 # anaconda R, gdal, and linux dependencies
 conda config --add channels conda-forge
-# CRAN versions of sf & rpostgresql, or their dependencies, don't work with anaconda
-conda install gcc_linux-64 gxx_linux-64 gfortran_linux-64 gdal R r-essentials r-sf r-rpostgresql
+# CRAN versions of sf, rpostgresql, testthat, and processx don't work with anaconda
+conda install gcc_linux-64 gxx_linux-64 gfortran_linux-64 gdal R r-essentials r-sf r-rpostgresql r-testthat r-processx
 # mkdir ~/Desktop/tmp
 # export TMPDIR=~/Desktop/tmp # if noexec causes trouble
 
