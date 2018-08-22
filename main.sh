@@ -17,6 +17,7 @@
 # setupw
 yum install epel-release
 yum install bzip2 gcc wget # need a system gcc for anaconda dependencies
+yum install mdbtools # MS access database tools
 yum install python-devel python-pip python-wheel
 yum upgrade python-setuptools
 
