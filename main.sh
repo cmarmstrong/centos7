@@ -14,14 +14,14 @@
 # export TERMCAP=
 
 # sudo -i # assume root
-# setupw
+# system setup
 yum install epel-release
 yum install bzip2 gcc wget # need a system gcc for anaconda dependencies
 yum install mdbtools # MS access database tools
+
+# python (for anaconda)
 yum install python-devel python-pip python-wheel
 yum upgrade python-setuptools
-
-# python
 pip install --upgrade pip
 pip install pycosat PyYaml Requests
 wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
@@ -32,17 +32,18 @@ bash Miniconda2-latest-Linux-x86_64.sh
 # anaconda R, gdal, and linux dependencies
 conda config --add channels conda-forge
 # CRAN versions of sf and rpostgresql don't work with anaconda?
-# NOTE: this is using system compilers; need to activate root environment?
+# NOTE: this is using system compilers; only way to use anaconda compilers is to write package?
 conda install gcc_linux-64 gxx_linux-64 gfortran_linux-64 gdal R r-essentials r-sf r-rpostgresql r-rserve
 # mkdir ~/Desktop/tmp
 # export TMPDIR=~/Desktop/tmp # if noexec causes trouble
 
 # rgdal, sf, etc...
 # R CMD INSTALL rgdal
-# Note: Once R and conda are setup, you can use R's package manager for most things (install.packages or R CMD INSTALL).
-#       udunits2 didn't work from R's package manager, because it tries to find it in the system not conda,
-#       but for cases like these conda has r-<package-name> for most r packages.  I prefer R's manager, and use conda only
-#       when necessary.
+# Note: Once R and conda are setup, you can use R's package manager for most things
+#       (install.packages or R CMD INSTALL).
+# Note: udunits2 didn't work from R's package manager, because it tries to find it in the system not
+#       conda, but for cases like these conda has r-<package-name> for most r packages.  I prefer
+#       R's manager, and use conda only when necessary.
 
 # yum remove git # remove centos7 git
 # git (source git necessary only for magit)
@@ -77,3 +78,11 @@ emacs --version
 # https://wiki.postgresql.org/wiki/YUM_Installation
 # postgis[v]_[pgv]-devel for shp2pgsql raster2pgsql etc
 # osm2pgsql 0.92 is in epel, or install recent from source at github
+
+# texlive
+# sudo yum remove texlive* # remove centos texlive
+yum install perl-Tk perl-Digest-MD5 # texlive dependencies
+wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+untar -vxzf install-tl*
+cd install-tl*
+./install-tl
