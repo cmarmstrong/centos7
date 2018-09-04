@@ -37,6 +37,9 @@ conda install gcc_linux-64 gxx_linux-64 gfortran_linux-64 gdal R r-essentials r-
 # mkdir ~/Desktop/tmp
 # export TMPDIR=~/Desktop/tmp # if noexec causes trouble
 
+# conda or it's version of R sets TAR=/bin/gtar; reset to /bin/tar if necessary
+# export TAR=/bin/tar
+
 # rgdal, sf, etc...
 # R CMD INSTALL rgdal
 # Note: Once R and conda are setup, you can use R's package manager for most things
