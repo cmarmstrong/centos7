@@ -81,6 +81,8 @@ emacs --version
 # https://wiki.postgresql.org/wiki/YUM_Installation
 # postgis[v]_[pgv]-devel for shp2pgsql raster2pgsql etc
 # osm2pgsql 0.92 is in epel, or install recent from source at github
+# if "no public key" error, invoke the following with 'XX' the version number:
+# rpm --import http://yum.postgresql.org/RPM-GPG-KEY-PGDG-XX
 
 # texlive
 # sudo yum remove texlive* # remove centos texlive
