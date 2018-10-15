@@ -91,3 +91,18 @@ wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 untar -vxzf install-tl*
 cd install-tl*
 ./install-tl
+
+# rstudio-server (https://www.rstudio.com/products/rstudio/download-server/)
+wget https://download2.rstudio.org/rstudio-server-rhel-1.1.456-x86_64.rpm
+sudo yum install rstudio-server-rhel-1.1.456-x86_64.rpm
+sudo echo "rsession-which-r=/home/cmarmstrong/miniconda2/bin/R" >> /etc/rstudio/rserver.conf
+sudo echo "rsession-ld-library-path=/home/cmarmstrong/miniconda2/lib" >> /etc/rstudio/rserver.conf
+sudo firewall-cmd --add-port=8787/tcp
+
+# TauDEM
+sudo yum install mpich
+git clone git@github.com:dtarb/TauDEM.git
+cd TauDEM
+mkdir bin
+cd src
+make
