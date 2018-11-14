@@ -92,6 +92,23 @@ untar -vxzf install-tl*
 cd install-tl*
 ./install-tl
 
+# R packages
+sudo yum install mpich
+# parallel::makePSOCKCluster default port range
+# sudo firewall-cmd --add-port=11000-11999/tcp
+
+R CMD INSTALL --configure-args="
+--with-Rmpi-include=/usr/include/mpich-x86_64
+--with-Rmpi-libpath=/user/lib64/mpich/lib
+--with-Rmpi-type=MPICH2"
+Rmpi_0.6-7.tar.gz
+
+R CMD INSTALL --configure-args="
+--with-mpi-include=/usr/include/mpich-x86_64
+--with-mpi-libpath=/user/lib64/mpich/lib
+--with-mpi-type=MPICH2"
+bigGP_0.1-6.tar.gz
+
 # rstudio-server (https://www.rstudio.com/products/rstudio/download-server/)
 wget https://download2.rstudio.org/rstudio-server-rhel-1.1.456-x86_64.rpm
 sudo yum install rstudio-server-rhel-1.1.456-x86_64.rpm
@@ -100,9 +117,11 @@ sudo echo "rsession-ld-library-path=/home/cmarmstrong/miniconda2/lib" >> /etc/rs
 sudo firewall-cmd --add-port=8787/tcp
 
 # TauDEM
-sudo yum install mpich
+# sudo yum install mpich
 git clone git@github.com:dtarb/TauDEM.git
 cd TauDEM
 mkdir bin
 cd src
 make
+# export MPIEXEC_PORT_RANGE=10100:10109
+# sudo firewall-cmd --add-port=10100-10109/tcp
