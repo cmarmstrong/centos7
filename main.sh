@@ -125,3 +125,6 @@ cd src
 make
 # export MPIEXEC_PORT_RANGE=10100:10109
 # sudo firewall-cmd --add-port=10100-10109/tcp
+
+# R cluster ports
+# sudo firewall-cmd --add-port=11000-11999/tcp
