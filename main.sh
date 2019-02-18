@@ -33,7 +33,11 @@ bash Miniconda2-latest-Linux-x86_64.sh
 conda config --add channels conda-forge
 # CRAN versions of sf and rpostgresql don't work with anaconda?
 # NOTE: this is using system compilers; only way to use anaconda compilers is to write package?
-conda install gcc_linux-64 gxx_linux-64 gfortran_linux-64 gdal R r-essentials r-sf r-rpostgresql r-rserve
+conda install -y gcc_linux-64 gxx_linux-64 gfortran_linux-64
+conda install -y "gdal>2.2.4" # -c conda-forge --override-channels installs python3 breaking conda
+conda install -y R r-essentials r-sf r-rpostgresql r-rserve
+conda install -y r-countrycode r-gdalUtils r-rgeos r-geosphere r-gstat r-raster r-sp # local deps
+# not in conda: rnaturalearth tigris; see main.R
 # mkdir ~/Desktop/tmp
 # export TMPDIR=~/Desktop/tmp # if noexec causes trouble
 
