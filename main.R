@@ -4,7 +4,8 @@ library(devtools)
 devtools::install_github('r-lib/devtools')
 
 ## stop() # comment to install others
-install.packages(c('rnaturalearth', 'tigris'))
+install.packages(c('postGIStools', 'rnaturalearth', 'tigris'))
+install.packages("rnaturalearthhires", repos = "http://packages.ropensci.org", type = "source")
 BiocInstaller::bioclite(c('aroma.light'))
 devtools::install_local('rv', dependencies=FALSE)
 devtools::install_local('raccess', dependencies=FALSE)
